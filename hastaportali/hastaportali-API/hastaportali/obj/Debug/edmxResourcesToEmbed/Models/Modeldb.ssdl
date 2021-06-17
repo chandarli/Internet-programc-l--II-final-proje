@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="db01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+  <EntityType Name="HastaKayit">
+    <Key>
+      <PropertyRef Name="Kimlik" />
+    </Key>
+    <Property Name="Kimlik" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="AdSoyad" Nullable="false" MaxLength="40" Type="nvarchar" />
+    <Property Name="DogumTarihi" Nullable="false" Type="date" />
+    <Property Name="E-posta" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Telefon" Nullable="false" MaxLength="10" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="HastaSaglik">
+    <Key>
+      <PropertyRef Name="Kimlik" />
+    </Key>
+    <Property Name="Kimlik" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="Yas" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="Uzunluk" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="Agarlik" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="KanGrubu" Nullable="false" MaxLength="5" Type="nvarchar" />
+    <Property Name="Tansiyon" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="Nabiz" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="SolunumSayisi" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="Sicaklik" Nullable="false" MaxLength="3" Type="nchar" />
+    <Property Name="Diyet" Nullable="false" MaxLength="10" Type="nchar" />
+    <Property Name="Alerji" Nullable="false" MaxLength="50" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="Mesaj">
+    <Key>
+      <PropertyRef Name="Kimlik" />
+    </Key>
+    <Property Name="Kimlik" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="GonderilenMesaj" Nullable="false" Type="varchar(max)" />
+    <Property Name="GelenMesaj" Nullable="false" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="Kimlik" />
+    </Key>
+    <Property Name="Kimlik" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="RandevuSaati" Nullable="false" Precision="4" Type="time" />
+    <Property Name="RandevuTarihi" Nullable="false" Type="date" />
+    <Property Name="RandevuBolum" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="RandevuDoktor" Nullable="false" MaxLength="50" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="Recete">
+    <Key>
+      <PropertyRef Name="Kimlik" />
+    </Key>
+    <Property Name="Kimlik" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="IlacAdi" MaxLength="50" Type="varchar" />
+    <Property Name="Miktarlar" MaxLength="50" Type="varchar" />
+    <Property Name="Doz" MaxLength="10" Type="nchar" />
+    <Property Name="Sure" MaxLength="10" Type="nchar" />
+    <Property Name="IlacNo" MaxLength="10" Type="nchar" />
+  </EntityType>
+  <EntityType Name="Sonuc">
+    <Key>
+      <PropertyRef Name="Kimlik" />
+    </Key>
+    <Property Name="Kimlik" Nullable="false" MaxLength="10" Type="nvarchar" />
+    <Property Name="Sonuc" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="db01ModelStoreContainer">
+    <EntitySet Name="HastaKayit" EntityType="Self.HastaKayit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HastaSaglik" EntityType="Self.HastaSaglik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mesaj" EntityType="Self.Mesaj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recete" EntityType="Self.Recete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sonuc" EntityType="Self.Sonuc" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

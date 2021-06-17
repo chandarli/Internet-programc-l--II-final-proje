@@ -1,0 +1,123 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <div mat-card-avatar ><mat-icon>supervisor_account</mat-icon></div>
+    <mat-card-title>{{dialogbaslik}}</mat-card-title>
+  </mat-card-header> 
+
+  <mat-divider></mat-divider>
+  &nbsp;&nbsp;&nbsp;
+
+  <mat-card-content>
+    <form class="example-container" [formGroup]="frm">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>hasta kayit kimlik no</mat-label>
+        <input matInput placeholder="hasta kayit kimlik no :" formControlName="HastaKimlik" name="HastaKimlik" type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hasta Adi Soyadi</mat-label>
+        <input matInput placeholder="Hasta Ad Soyad :" formControlName="HastaAdSoyad" name="HastaAdSoyad" required type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hasta Dogum Tarihi</mat-label>
+        <input matInput placeholder="Hasta Dogum Tarihi :" formControlName="HastaDogumTarihi" name="HastaDogumTarihi" required type="date">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hasta E_posta</mat-label>
+        <input matInput placeholder="pat@example.com"  formControlName="HastaE_posta" name="HastaE_posta" required type="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <span matPrefix>+90 &nbsp;</span>
+        <mat-label>Hasta Telefon</mat-label>
+        <input matInput placeholder="555-555-5555"  formControlName="HastaTelefon" name="HastaTelefon" required type="tel">
+      </mat-form-field> 
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hasta Sifre</mat-label>
+        <input matInput placeholder="Hasta Sifre"  formControlName="HastaSifre" name="HastaSifre" required type="password">
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Tip Dali</mat-label>
+        <input type="text"
+               placeholder="Tip Dali"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto2"
+               name="HastaTipDaliId"
+               formControlName="HastaTipDaliId" required>
+        <mat-autocomplete #auto2="matAutocomplete">
+          <mat-option *ngFor="let TipDallari of TipDallari" [value]="TipDallari.TipDaliId">
+            {{TipDallari.TipDali}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>      
+
+      <mat-form-field >
+        <mat-label>Doktorlar</mat-label>
+        <input type="text"
+               placeholder="Doktorlar"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               name="TedaviYapanDoktorKimlik"
+               formControlName="TedaviYapanDoktorKimlik" required>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let Doktorlar of Doktorlar" [value]="Doktorlar.DoktorKimlik">
+            {{Doktorlar.DoktorAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>hasta foto</mat-label>
+        <input type="text"
+               placeholder="HastaFoto"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto1"
+               name="HastaFoto"
+               formControlName="HastaFoto" required>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let hastakayit of hastakayit" [value]="hastakayit.HastaFoto">
+            {{hastakayit.HastaAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Kayit Bilgi Id</mat-label>
+        <input type="text"
+               placeholder="KayitBilgiId"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto3"
+               name="HastaKayitBilgiId"
+               formControlName="HastaKayitBilgiId" required>
+        <mat-autocomplete #auto3="matAutocomplete">
+          <mat-option *ngFor="let hastabilgi of hastabilgi" [value]="hastabilgi.HastaBilgiId">
+            {{hastabilgi.bilgiaitHasta}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </form>
+  </mat-card-content>
+
+ 
+
+
+  <mat-card-actions>
+    <button mat-stroked-button color="warn" (click)="matDialogRef.close()">kapat</button> &nbsp;
+    <button mat-stroked-button color="primary" (click)="matDialogRef.close(frm.value)"  [disabled]="frm.invalid">kaydet</button>
+  </mat-card-actions>
+</mat-card>

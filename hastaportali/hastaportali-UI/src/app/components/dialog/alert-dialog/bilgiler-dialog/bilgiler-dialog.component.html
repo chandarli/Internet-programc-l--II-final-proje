@@ -1,0 +1,131 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <div mat-card-avatar ><mat-icon>supervisor_account</mat-icon></div>
+    <mat-card-title>{{dialogbaslik}}</mat-card-title>
+  </mat-card-header> 
+
+  <mat-divider></mat-divider> 
+  &nbsp;&nbsp;&nbsp;
+
+  <mat-card-content>
+    <form class="example-container" [formGroup]="frm">
+
+      <div class="example-button-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Hasta Bilgi Id</mat-label>
+        <input matInput placeholder="HastaBilgiId :" formControlName="HastaBilgiId" name="HastaBilgiId" type="number">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Yas</mat-label>
+        <input matInput placeholder="Yas :" formControlName="Yas" name="Yas" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Uzunluk</mat-label>
+        <input matInput placeholder="Uzunluk :" formControlName="Uzunluk" name="Uzunluk" required type="text">
+      </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      &nbsp;
+      <div class="example-button-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Agarlik</mat-label>
+        <input matInput placeholder="Agarlik"  formControlName="Agarlik" name="Agarlik" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        
+        <mat-label>KanGrubu</mat-label>
+        <input matInput placeholder="KanGrubu"  formControlName="KanGrubu" name="KanGrubu" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Tansiyon</mat-label>
+        <input matInput placeholder="Tansiyon"  formControlName="Tansiyon" name="Tansiyon" required type="text">
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    &nbsp;
+      <div class="example-button-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Nabiz</mat-label>
+        <input matInput placeholder="Nabiz"  formControlName="Nabiz" name="Nabiz" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>SolunumSayisi</mat-label>
+        <input matInput placeholder="SolunumSayisi"  formControlName="SolunumSayisi" name="SolunumSayisi" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill" >
+        <mat-label>Sicaklik</mat-label>
+        <input matInput placeholder="Sicaklik"  formControlName="Sicaklik" name="Sicaklik" required type="text">
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    &nbsp;
+      <div class="example-button-row">
+      <mat-form-field appearance="fill" >
+        <mat-label>Diyet</mat-label>
+        <input matInput placeholder="Diyet"  formControlName="Diyet" name="Diyet" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Alerji</mat-label>
+        <input matInput placeholder="Alerji"  formControlName="Alerji" name="Alerji" required type="text">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>OlcmeTarihi</mat-label>
+        <input matInput placeholder="OlcmeTarihi"  formControlName="OlcmeTarihi" name="OlcmeTarihi" required type="date">
+      </mat-form-field>
+    </div>
+
+    
+      <mat-form-field style="width: 47%;">
+        <mat-label>DoktorAdSoyad</mat-label>
+        <input type="text"
+               placeholder="DoktorAdSoyad"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               name="OlcmeYapanDoktorKimlik"
+               formControlName="OlcmeYapanDoktorKimlik" required>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let Doktorlar of doktorlar" [value]="Doktorlar.DoktorKimlik">
+            {{Doktorlar.DoktorAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field style="width: 47%;">
+        <mat-label>HastaAdSoyad</mat-label>
+        <input type="text"
+               placeholder="HastaAdSoyad"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto1"
+               name="bilgiaitHastaKimlik"
+               formControlName="bilgiaitHastaKimlik" required>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let hastakayit of hastalar" [value]="hastakayit.HastaKimlik">
+            {{hastakayit.HastaAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+
+    </form> 
+  </mat-card-content>
+
+ 
+
+
+  <mat-card-actions>
+    <button mat-stroked-button color="warn" (click)="matDialogRef.close()">kapat</button> &nbsp;
+    <button mat-stroked-button color="primary" (click)="matDialogRef.close(frm.value)"  [disabled]="frm.invalid" >kaydet</button>
+  </mat-card-actions>
+</mat-card>

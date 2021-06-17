@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Doktorlar">
+    <Key>
+      <PropertyRef Name="DoktorKimlik" />
+    </Key>
+    <Property Name="DoktorKimlik" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DoktorAdSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoktorTel" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DoktorE-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoktorTipDaliId" Type="nvarchar" MaxLength="10" />
+    <Property Name="DoktorFoto" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoktorSifre" Type="nvarchar" MaxLength="16" />
+    <Property Name="TedaviAlanlarKimlik" Type="nvarchar" MaxLength="10" />
+    <Property Name="Randevularim" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HastaBilgi">
+    <Key>
+      <PropertyRef Name="HastaBilgiId" />
+    </Key>
+    <Property Name="HastaBilgiId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Yas" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Uzunluk" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Agarlik" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="KanGrubu" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Tansiyon" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Nabiz" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="SolunumSayisi" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Sicaklik" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Diyet" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Alerji" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OlcmeTarihi" Type="datetime" Nullable="false" />
+    <Property Name="OlcmeYapanDoktorKimlik" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="E-imza" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HastaKayit">
+    <Key>
+      <PropertyRef Name="HastaKimlik" />
+    </Key>
+    <Property Name="HastaKimlik" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaAdSoyad" Type="nvarchar" MaxLength="40" />
+    <Property Name="HastaDogumTarihi" Type="date" Nullable="false" />
+    <Property Name="HastaE-posta" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HastaTelefon" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaKayitBilgiId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaRandevuID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaTipDalid" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaSonucId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaReceteId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HastaFoto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HastaSifre" Type="nvarchar" MaxLength="16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="RandevuId" />
+    </Key>
+    <Property Name="RandevuId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RandevuSaati" Type="time" Precision="4" Nullable="false" />
+    <Property Name="RandevuTarihi" Type="date" />
+    <Property Name="RandevuTipDaliId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RandevuDoktorKimlik" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recete">
+    <Key>
+      <PropertyRef Name="ReceteId" />
+    </Key>
+    <Property Name="ReceteId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IlacAdi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Miktarlar" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Doz" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Sure" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ReceteTarih" Type="datetime" Nullable="false" />
+    <Property Name="E-imza" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TahlilSonuc">
+    <Key>
+      <PropertyRef Name="TahlilSonucId" />
+    </Key>
+    <Property Name="TahlilSonucId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TahlilSonuc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TahlilSonucTarih" Type="datetime" Nullable="false" />
+    <Property Name="E-imza" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipdallari">
+    <Key>
+      <PropertyRef Name="TipDaliId" />
+    </Key>
+    <Property Name="TipDaliId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TipDali" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Doktorlar_ToHastaKayit">
+    <End Role="HastaKayit" Type="Self.HastaKayit" Multiplicity="0..1" />
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HastaKayit">
+        <PropertyRef Name="HastaKimlik" />
+      </Principal>
+      <Dependent Role="Doktorlar">
+        <PropertyRef Name="TedaviAlanlarKimlik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doktorlar_ToRandevu">
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="0..1" />
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Randevu">
+        <PropertyRef Name="RandevuId" />
+      </Principal>
+      <Dependent Role="Doktorlar">
+        <PropertyRef Name="Randevularim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doktorlar_ToTipdallari">
+    <End Role="Tipdallari" Type="Self.Tipdallari" Multiplicity="0..1" />
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipdallari">
+        <PropertyRef Name="TipDaliId" />
+      </Principal>
+      <Dependent Role="Doktorlar">
+        <PropertyRef Name="DoktorTipDaliId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaBilgi_ToDoktorlar">
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="1" />
+    <End Role="HastaBilgi" Type="Self.HastaBilgi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktorlar">
+        <PropertyRef Name="DoktorKimlik" />
+      </Principal>
+      <Dependent Role="HastaBilgi">
+        <PropertyRef Name="OlcmeYapanDoktorKimlik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaKayit_ToHastaBilgi">
+    <End Role="HastaBilgi" Type="Self.HastaBilgi" Multiplicity="1" />
+    <End Role="HastaKayit" Type="Self.HastaKayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HastaBilgi">
+        <PropertyRef Name="HastaBilgiId" />
+      </Principal>
+      <Dependent Role="HastaKayit">
+        <PropertyRef Name="HastaKayitBilgiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaKayit_ToRandevu">
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="1" />
+    <End Role="HastaKayit" Type="Self.HastaKayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Randevu">
+        <PropertyRef Name="RandevuId" />
+      </Principal>
+      <Dependent Role="HastaKayit">
+        <PropertyRef Name="HastaRandevuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaKayit_ToRecete">
+    <End Role="Recete" Type="Self.Recete" Multiplicity="1" />
+    <End Role="HastaKayit" Type="Self.HastaKayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recete">
+        <PropertyRef Name="ReceteId" />
+      </Principal>
+      <Dependent Role="HastaKayit">
+        <PropertyRef Name="HastaReceteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaKayit_ToTahlilSonuc">
+    <End Role="TahlilSonuc" Type="Self.TahlilSonuc" Multiplicity="1" />
+    <End Role="HastaKayit" Type="Self.HastaKayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TahlilSonuc">
+        <PropertyRef Name="TahlilSonucId" />
+      </Principal>
+      <Dependent Role="HastaKayit">
+        <PropertyRef Name="HastaSonucId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HastaKayit_ToTipDallari">
+    <End Role="Tipdallari" Type="Self.Tipdallari" Multiplicity="1" />
+    <End Role="HastaKayit" Type="Self.HastaKayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipdallari">
+        <PropertyRef Name="TipDaliId" />
+      </Principal>
+      <Dependent Role="HastaKayit">
+        <PropertyRef Name="HastaTipDalid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_ToDoktorlar">
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktorlar">
+        <PropertyRef Name="DoktorKimlik" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="RandevuDoktorKimlik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_ToTipDallari">
+    <End Role="Tipdallari" Type="Self.Tipdallari" Multiplicity="1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipdallari">
+        <PropertyRef Name="TipDaliId" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="RandevuTipDaliId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db01ModelStoreContainer">
+    <EntitySet Name="Doktorlar" EntityType="Self.Doktorlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HastaBilgi" EntityType="Self.HastaBilgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HastaKayit" EntityType="Self.HastaKayit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recete" EntityType="Self.Recete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TahlilSonuc" EntityType="Self.TahlilSonuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipdallari" EntityType="Self.Tipdallari" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Doktorlar_ToHastaKayit" Association="Self.FK_Doktorlar_ToHastaKayit">
+      <End Role="HastaKayit" EntitySet="HastaKayit" />
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doktorlar_ToRandevu" Association="Self.FK_Doktorlar_ToRandevu">
+      <End Role="Randevu" EntitySet="Randevu" />
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doktorlar_ToTipdallari" Association="Self.FK_Doktorlar_ToTipdallari">
+      <End Role="Tipdallari" EntitySet="Tipdallari" />
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaBilgi_ToDoktorlar" Association="Self.FK_HastaBilgi_ToDoktorlar">
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+      <End Role="HastaBilgi" EntitySet="HastaBilgi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaKayit_ToHastaBilgi" Association="Self.FK_HastaKayit_ToHastaBilgi">
+      <End Role="HastaBilgi" EntitySet="HastaBilgi" />
+      <End Role="HastaKayit" EntitySet="HastaKayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaKayit_ToRandevu" Association="Self.FK_HastaKayit_ToRandevu">
+      <End Role="Randevu" EntitySet="Randevu" />
+      <End Role="HastaKayit" EntitySet="HastaKayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaKayit_ToRecete" Association="Self.FK_HastaKayit_ToRecete">
+      <End Role="Recete" EntitySet="Recete" />
+      <End Role="HastaKayit" EntitySet="HastaKayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaKayit_ToTahlilSonuc" Association="Self.FK_HastaKayit_ToTahlilSonuc">
+      <End Role="TahlilSonuc" EntitySet="TahlilSonuc" />
+      <End Role="HastaKayit" EntitySet="HastaKayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HastaKayit_ToTipDallari" Association="Self.FK_HastaKayit_ToTipDallari">
+      <End Role="Tipdallari" EntitySet="Tipdallari" />
+      <End Role="HastaKayit" EntitySet="HastaKayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_ToDoktorlar" Association="Self.FK_Randevu_ToDoktorlar">
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_ToTipDallari" Association="Self.FK_Randevu_ToTipDallari">
+      <End Role="Tipdallari" EntitySet="Tipdallari" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

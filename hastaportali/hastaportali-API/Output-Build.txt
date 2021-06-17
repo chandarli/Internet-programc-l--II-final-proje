@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: hastaportali, Configuration: Debug Any CPU ------
+1>  hastaportali -> D:\20181129002 II\internet pro\hastaportali\hastaportali\bin\hastaportali.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

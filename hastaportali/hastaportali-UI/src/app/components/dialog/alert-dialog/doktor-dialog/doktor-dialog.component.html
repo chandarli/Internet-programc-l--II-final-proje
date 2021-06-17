@@ -1,0 +1,122 @@
+<div class="example">
+
+<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <div mat-card-avatar ><mat-icon>supervisor_account</mat-icon></div>
+    <mat-card-title>{{dialogbaslik}}</mat-card-title>
+  </mat-card-header> 
+
+  <mat-divider></mat-divider> 
+  &nbsp;&nbsp;&nbsp;
+ 
+  <mat-card-content>
+    <form class="example-container" [formGroup]="frm">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Doktor kimlik no</mat-label>
+        <input matInput placeholder="Doktor kimlik no :" formControlName="DoktorKimlik" name="DoktorKimlik" type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Doktor Adi Soyadi</mat-label>
+        <input matInput placeholder="Doktor Adi Soyadi :" formControlName="DoktorAdSoyad" name="DoktorAdSoyad" required type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Doktor Tel</mat-label>
+        <input matInput placeholder="Doktor Tel :" formControlName="DoktorTel" name="DoktorTel" required type="number">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Doktor email</mat-label>
+        <input matInput placeholder="pat@example.com"  formControlName="DoktorE_mail" name="DoktorE_mail" required type="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Doktor Sifre</mat-label>
+        <input matInput placeholder="Doktor Sifre"  formControlName="DoktorSifre" name="DoktorSifre" required type="password">
+      </mat-form-field>
+
+      <mat-form-field style="max-width: 99%;min-width: 48%;">
+        <mat-label>Doktor Foto</mat-label>
+        <input type="text"
+               placeholder="Doktor Foto"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto3"
+               name="DoktorFoto"
+               formControlName="DoktorFoto" required>
+        <mat-autocomplete #auto3="matAutocomplete">
+          <mat-option *ngFor="let Doktorlar of Doktorlar" [value]="Doktorlar.DoktorFoto">
+            {{Doktorlar.DoktorFoto}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
+
+      <mat-form-field style="max-width: 99%;min-width: 48%;">
+        <mat-label>TipDallari</mat-label>
+        <input type="text"
+               placeholder="TipDaliId"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               name="DoktorTipDaliId"
+               formControlName="DoktorTipDaliId" required>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let TipDallari of TipDallari" [value]="TipDallari.TipDaliId">
+            {{TipDallari.TipDali}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
+
+      <mat-form-field style="max-width: 99%;min-width: 48%;">
+        <mat-label>randevular</mat-label>
+        <input type="number"
+               placeholder="randevular"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto1"
+               name="randevular"
+               formControlName="randevular" required>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let Randevu of Randevu" [value]="Randevu.RandevuId">
+            {{Randevu.RandevuTarihi}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
+      <mat-form-field style="max-width: 99%;min-width: 48%;">
+        <mat-label>HastaAdSoyad</mat-label>
+        <input type="text"
+               placeholder="HastaAdSoyad"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto2"
+               name="TedaviAlanlarKimlik"
+               formControlName="TedaviAlanlarKimlik" required>
+        <mat-autocomplete #auto2="matAutocomplete">
+          <mat-option *ngFor="let hastakayit of hastalar" [value]="hastakayit.HastaKimlik">
+            {{hastakayit.HastaAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </form>
+  </mat-card-content>
+
+ 
+
+
+  <mat-card-actions>
+    <button mat-stroked-button color="warn" (click)="matDialogRef.close()">kapat</button> &nbsp;
+    <button mat-stroked-button color="primary" (click)="matDialogRef.close(frm.value)"   [disabled]="frm.invalid" >kaydet</button>
+  </mat-card-actions>
+</mat-card>
+</div>

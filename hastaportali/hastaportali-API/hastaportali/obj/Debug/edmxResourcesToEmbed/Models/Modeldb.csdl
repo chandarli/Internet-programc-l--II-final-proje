@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="HastaKayit" Abstract="false">
+    <Property Name="Kimlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" ConcurrencyMode="None" />
+    <Property Name="AdSoyad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DogumTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="E_posta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HastaSaglik" BaseType="db01Model.HastaKayit">
+    <Property Name="Kimlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Yas" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Uzunluk" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Agarlik" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="KanGrubu" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tansiyon" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Nabiz" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SolunumSayisi" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Sicaklik" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Diyet" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Alerji" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mesaj" BaseType="db01Model.HastaKayit">
+    <Property Name="Kimlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GonderilenMesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GelenMesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Randevu" BaseType="db01Model.HastaKayit">
+    <Property Name="Kimlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RandevuSaati" Type="Time" Nullable="false" Precision="4" />
+    <Property Name="RandevuTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RandevuBolum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RandevuDoktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recete" BaseType="db01Model.HastaKayit">
+    <Property Name="Kimlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IlacAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Miktarlar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Doz" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Sure" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IlacNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sonuc" BaseType="db01Model.HastaKayit">
+    <Property Name="Kimlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sonuc1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="db01Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HastaKayits" EntityType="db01Model.HastaKayit" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,114 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <img [src]="siteurl+'/Dosyalar/'+secilihasta?.HastaFoto" style="width: 45px;" alt="Avatar" class="avatar">
+    </div>
+    <mat-card-title>{{secilihasta?.HastaAdSoyad}}</mat-card-title>
+    <mat-card-subtitle>{{secilihasta?.TipDali}}</mat-card-subtitle>
+    
+  </mat-card-header>  
+  
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+      
+      <!-- HastaBilgiId  -->
+      <ng-container matColumnDef="HastaBilgiId">
+        <th mat-header-cell *matHeaderCellDef> Hasta Bilgi Id. </th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.HastaBilgiId}} </td>
+      </ng-container>
+
+      <!-- bilgiaitHasta  -->
+      <ng-container matColumnDef="bilgiaitHasta">
+        <th mat-header-cell *matHeaderCellDef> bilgiaitHasta. </th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.bilgiaitHasta}} </td>
+      </ng-container>      
+
+      <!-- Yas  -->
+      <ng-container matColumnDef="Yas">
+        <th mat-header-cell *matHeaderCellDef> Yas. </th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Yas}} </td>
+      </ng-container>      
+
+      <!-- Uzunluk  -->
+      <ng-container matColumnDef="Uzunluk">
+        <th mat-header-cell *matHeaderCellDef> Uzunluk. </th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Uzunluk}} </td>
+      </ng-container>
+      
+      <!-- Agarlik  -->
+      <ng-container matColumnDef="Agarlik">
+        <th mat-header-cell *matHeaderCellDef> Agarlik. </th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Agarlik}} </td>
+      </ng-container>
+      
+      <!-- KanGrubu  -->
+      <ng-container matColumnDef="KanGrubu">
+        <th mat-header-cell *matHeaderCellDef> KanGrubu. </th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.KanGrubu}} </td>
+      </ng-container>      
+
+      <!-- Tansiyon  -->
+      <ng-container matColumnDef="Tansiyon">
+        <th mat-header-cell *matHeaderCellDef>Tansiyon.</th>
+        <td mat-cell *matCellDef="let kayit">{{kayit.HastaBilgiler?.Tansiyon}}</td>
+      </ng-container>  
+
+      <!-- Nabiz  -->
+      <ng-container matColumnDef="Nabiz">
+        <th mat-header-cell *matHeaderCellDef>Nabiz.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Nabiz}} </td>
+      </ng-container>  
+
+      <!-- SolunumSayisi  -->
+      <ng-container matColumnDef="SolunumSayisi">
+        <th mat-header-cell *matHeaderCellDef>Solunum.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.SolunumSayisi}} </td>
+      </ng-container> 
+
+      <!-- Sicaklik  -->
+      <ng-container matColumnDef="Sicaklik">
+        <th mat-header-cell *matHeaderCellDef>Sicaklik.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Sicaklik}} </td>
+      </ng-container> 
+
+      <!-- Diyet  -->
+      <ng-container matColumnDef="Diyet">
+        <th mat-header-cell *matHeaderCellDef>Diyet.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Diyet}} </td>
+      </ng-container> 
+
+      <!-- Alerji  -->
+      <ng-container matColumnDef="Alerji">
+        <th mat-header-cell *matHeaderCellDef>Alerji.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.Alerji}} </td>
+      </ng-container> 
+
+      <!-- OlcmeTarihi  -->
+      <ng-container matColumnDef="OlcmeTarihi">
+        <th mat-header-cell *matHeaderCellDef>OlcmeTarihi.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.OlcmeTarihi}} </td>
+      </ng-container> 
+
+      <!-- OlcmeYapanDoktorKimlik  -->
+      <ng-container matColumnDef="OlcmeYapanDoktorKimlik">
+        <th mat-header-cell *matHeaderCellDef>DoktorKimlik.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.OlcmeYapanDoktorKimlik}} </td>
+      </ng-container> 
+
+      <!-- DoktorAdSoyad  -->
+      <ng-container matColumnDef="DoktorAdSoyad">
+        <th mat-header-cell *matHeaderCellDef>DoktorAdSoyad.</th>
+        <td mat-cell *matCellDef="let kayit"> {{kayit.HastaBilgiler?.DoktorAdSoyad}} </td>
+      </ng-container>   
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-menu-item [routerLink]="['/hastalar']" style="text-align: center;width: auto;">
+      <mat-icon>assignment_return</mat-icon>
+      geri don</button>
+
+  </mat-card-actions>
+</mat-card>

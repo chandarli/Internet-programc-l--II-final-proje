@@ -1,0 +1,69 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav *ngIf="apiservis.oturumkontrol()" #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Hasta portalı</mat-toolbar>
+
+    <mat-nav-list>
+      
+      <a mat-list-item [routerLink]="['/hesabim']">doktorlar</a>
+      <a mat-list-item [routerLink]="['/hastalar']">hastalar</a>
+      <a mat-list-item [routerLink]="['/hastabilgiler']" *ngIf="apiservis.yetkiKontrol(['Admin'])">hasta bilgiler</a>
+      <a mat-list-item [routerLink]="['/randevu']">randevular</a>
+      <a mat-list-item [routerLink]="['/recete']">receteler</a>
+      <a mat-list-item [routerLink]="['/tahlilsonuc']">tahlilat sonuclari</a>
+      <a mat-list-item [routerLink]="['/tipdali']" *ngIf="apiservis.yetkiKontrol(['Admin'])">tip dallari</a>
+
+
+
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <span style="margin-left: 3%;" *ngIf="apiservis.oturumkontrol()">Tablolar</span>
+      <span style="margin-left: 3%;" *ngIf="!apiservis.oturumkontrol()">Otorom ac</span>
+
+
+      <span class="example-spacer"></span>
+
+            
+      <button *ngIf="apiservis.oturumkontrol()" [routerLink]="['/hesabim']" mat-icon-button class="example-icon" style="margin-right: 8%;">
+        <mat-icon>
+          people_alt
+        </mat-icon>
+        <span>             {{DoktorAdSoyad}}</span>
+      </button>
+      <button *ngIf="!apiservis.oturumkontrol()" [routerLink]="['/']" matTooltip="ayarlar" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>
+          people_alt
+        </mat-icon>
+        <span>           Oturum ac</span>
+      </button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button *ngIf="apiservis.oturumkontrol()" (click)="oturumkapat()" matTooltip="Oturum kapat" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>
+          logout
+        </mat-icon>
+        <span>           Oturum kapat</span>
+      </button>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

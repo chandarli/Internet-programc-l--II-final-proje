@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{dialogbaslik}}</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>{{dialogmesaj}}</h3>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>kapat</button>
+  <button mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>tamam</button>
+</mat-dialog-actions>

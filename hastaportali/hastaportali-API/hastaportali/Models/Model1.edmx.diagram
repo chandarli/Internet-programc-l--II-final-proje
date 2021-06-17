@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7694bca4588142b1af71ce0f299a43d6" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="db01Model.Doktorlar" Width="1.5" PointX="14.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.HastaBilgi" Width="1.5" PointX="10.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.HastaKayit" Width="1.5" PointX="0.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.kayitlar" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.Randevu" Width="1.5" PointX="4.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.Recete" Width="1.5" PointX="12.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.TahlilSonuc" Width="1.5" PointX="2.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db01Model.Tipdallari" Width="1.5" PointX="6.375" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="db01Model.FK_Doktorlar_ToHastaKayit" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Doktorlar_Torandevu" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Doktorlar_ToTipdallari" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_HastaBilgi_ToDoktorlar" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_HastaKayit_ToDoktor" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_kayit_Todoktor" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Randevu_ToDoktorlar" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Recete_Todoktor" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_TahlilSonuc_Todoktor" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Tipdallari_Todoktor" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_HastaBilgi_Tohastakayit" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_HastaKayit_ToHastaBilgi" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_HastaKayit_ToTipdali" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_kayitlar_Tohasta" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Randevu_Tohastakayit" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Recete_Tohastakayit" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_TahlilSonuc_Tohasta" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Tipdallari_Tohastakayit" ManuallyRouted="false" />
+        <AssociationConnector Association="db01Model.FK_Randevu_ToTipdali" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="db01Entities" StorageEntityContainer="db01ModelStoreContainer">
+    <EntitySetMapping Name="HastaKayits">
+      <EntityTypeMapping TypeName="IsTypeOf(db01Model.HastaKayit)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="HastaKayit">
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="E_posta" ColumnName="E-posta" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(db01Model.Mesaj)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="Mesaj">
+          <ScalarProperty Name="GelenMesaj" ColumnName="GelenMesaj" />
+          <ScalarProperty Name="GonderilenMesaj" ColumnName="GonderilenMesaj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(db01Model.Recete)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="Recete">
+          <ScalarProperty Name="IlacNo" ColumnName="IlacNo" />
+          <ScalarProperty Name="Sure" ColumnName="Sure" />
+          <ScalarProperty Name="Doz" ColumnName="Doz" />
+          <ScalarProperty Name="Miktarlar" ColumnName="Miktarlar" />
+          <ScalarProperty Name="IlacAdi" ColumnName="IlacAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(db01Model.Randevu)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="Randevu">
+          <ScalarProperty Name="RandevuDoktor" ColumnName="RandevuDoktor" />
+          <ScalarProperty Name="RandevuBolum" ColumnName="RandevuBolum" />
+          <ScalarProperty Name="RandevuTarihi" ColumnName="RandevuTarihi" />
+          <ScalarProperty Name="RandevuSaati" ColumnName="RandevuSaati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(db01Model.Sonuc)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="Sonuc">
+          <ScalarProperty Name="Sonuc1" ColumnName="Sonuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(db01Model.HastaSaglik)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="HastaSaglik">
+          <ScalarProperty Name="Alerji" ColumnName="Alerji" />
+          <ScalarProperty Name="Diyet" ColumnName="Diyet" />
+          <ScalarProperty Name="Sicaklik" ColumnName="Sicaklik" />
+          <ScalarProperty Name="SolunumSayisi" ColumnName="SolunumSayisi" />
+          <ScalarProperty Name="Nabiz" ColumnName="Nabiz" />
+          <ScalarProperty Name="Tansiyon" ColumnName="Tansiyon" />
+          <ScalarProperty Name="KanGrubu" ColumnName="KanGrubu" />
+          <ScalarProperty Name="Agarlik" ColumnName="Agarlik" />
+          <ScalarProperty Name="Uzunluk" ColumnName="Uzunluk" />
+          <ScalarProperty Name="Yas" ColumnName="Yas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

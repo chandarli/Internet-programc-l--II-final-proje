@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>islem onayi</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>{{dialogmesaj}}</h3>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" (click)="dialogRef.close(false)">iptal</button>
+  <button mat-stroked-button color="primary" cdkFocusInitial (click)="dialogRef.close(true)">onayla</button>
+</mat-dialog-actions>
+ 

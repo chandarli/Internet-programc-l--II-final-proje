@@ -1,0 +1,101 @@
+<mat-card class="example-card">
+  <mat-card-header>
+        <mat-form-field appeareance="outline">
+          <input matInput placeholder="recete ara" (keyup)="filtrele($event)" >
+        </mat-form-field>
+  </mat-card-header>
+  <mat-card-content> 
+    <button mat-menu-item (click)="ekle()" style="width: auto; margin-left: 25px;" *ngIf="apiservice.yetkiKontrol(['Admin'])">
+      <mat-icon>create_new_folder</mat-icon>
+      recete  ekle
+    </button> 
+
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                  <!-- ReceteId -->
+                  <ng-container matColumnDef="ReceteId" sticky>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ReceteId</th>
+                    <td mat-cell *matCellDef="let kayit">{{kayit.ReceteId}}</td>
+                  </ng-container>
+
+                  <!-- IlacAdi -->
+                  <ng-container matColumnDef="IlacAdi">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>IlacAdi</th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.IlacAdi}} </td>
+                  </ng-container>                  
+              
+                  <!-- Miktarlar -->
+                  <ng-container matColumnDef="Miktarlar">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Miktarlar</th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.Miktarlar}} </td>
+                  </ng-container>
+
+                  <!-- Doz -->
+                  <ng-container matColumnDef="Doz">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Doz</th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.Doz}} </td>
+                  </ng-container>
+
+                  <!-- Sure -->
+                  <ng-container matColumnDef="Sure">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sure</th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.Sure}} </td>
+                  </ng-container>
+
+                  <!-- Recetedoktorad -->
+                  <ng-container matColumnDef="Recetedoktorad">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>doktor adsoyad</th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.Recetedoktorad}} </td>
+                  </ng-container>  
+                     
+                  <!-- Recetehastakayitad -->
+                  <ng-container matColumnDef="Recetehastakayitad">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>hasta adsoyad</th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.Recetehastakayitad}} </td>
+                  </ng-container>                                 
+ 
+
+                  <!-- ReceteTarih -->
+                  <ng-container matColumnDef="ReceteTarih">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ReceteTarih </th>
+                    <td mat-cell *matCellDef="let kayit"> {{kayit.ReceteTarih}} </td>
+                  </ng-container>                
+
+                  <!-- islemler list_alt -->
+                  <ng-container matColumnDef="islemler" stickyEnd>
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let kayit">
+
+                      <button mat-icon-button matTooltip="kayıt işlemler" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="apiservice.yetkiKontrol(['Admin'])">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="duzenle(kayit)">
+                          <mat-icon>create</mat-icon>
+                          <span>recete düzenle</span>
+                        </button>
+                        <button mat-menu-item (click)="sil(kayit)">
+                          <mat-icon>delete</mat-icon>
+                          <span>recete sil</span>
+                        </button>
+                      </mat-menu>
+
+                    </td>
+                  </ng-container>   
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+   </mat-card-content>  
+   <mat-card-actions>
+
+      <mat-paginator 
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      showFirstLastButtons>
+      </mat-paginator>
+
+     </mat-card-actions>  
+          
+</mat-card>         
+       

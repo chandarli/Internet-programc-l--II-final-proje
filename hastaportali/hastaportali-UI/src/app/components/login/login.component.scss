@@ -1,0 +1,26 @@
+
+  .mat-card{
+  padding: 60px 50px 40px 50px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+
+    max-width: 330px;
+    display:flexbox;
+    align-self: center;
+    
+
+  }
+
+  .mat-form-field{
+    width: 310px;
+  }
+
+  .main-div{
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://image.freepik.com/free-photo/blurred-abstract-background-interior-view-looking-out-toward-empty-office-lobby-entrance-doors-glass-curtain-wall-with-frame_1339-6363.jpg');
+    background-size: cover;
+  }

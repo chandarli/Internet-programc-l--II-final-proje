@@ -1,0 +1,17 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <div mat-card-avatar ><mat-icon>supervisor_account</mat-icon></div>
+    <mat-card-title>Tahlilat sonucu</mat-card-title>
+    <button mat-stroked-button color="warn" (click)="matDialogRef.close()" style="margin-left: 525px;margin-bottom: 10px">kapat</button> 
+  </mat-card-header> 
+
+  <mat-divider></mat-divider> 
+  &nbsp;&nbsp;&nbsp;
+
+  <mat-dialog-content>
+    <form class="example-container" [formGroup]="frm">
+      <img MatFormFieldControl [src]="apiservice.siteurl+'/Dosyalar/'+yenikayit.TahlilSonuc1" style="width:99%;" formControlName="TahlilSonuc1" name="TahlilSonuc1" ngDefaultControl>
+
+      </form> 
+  </mat-dialog-content>
+</mat-card>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db01ModelStoreContainer" CdmEntityContainer="db01Entities6">
+    <EntitySetMapping Name="Doktorlar">
+      <EntityTypeMapping TypeName="db01Model.Doktorlar">
+        <MappingFragment StoreEntitySet="Doktorlar">
+          <ScalarProperty Name="Randevularim" ColumnName="Randevularim" />
+          <ScalarProperty Name="DoktorTipDaliId" ColumnName="DoktorTipDaliId" />
+          <ScalarProperty Name="DoktorKimlik" ColumnName="DoktorKimlik" />
+          <ScalarProperty Name="DoktorAdSoyad" ColumnName="DoktorAdSoyad" />
+          <ScalarProperty Name="DoktorTel" ColumnName="DoktorTel" />
+          <ScalarProperty Name="DoktorE_mail" ColumnName="DoktorE-mail" />
+          <ScalarProperty Name="DoktorFoto" ColumnName="DoktorFoto" />
+          <ScalarProperty Name="DoktorSifre" ColumnName="DoktorSifre" />
+          <ScalarProperty Name="TedaviAlanlarKimlik" ColumnName="TedaviAlanlarKimlik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HastaBilgi">
+      <EntityTypeMapping TypeName="db01Model.HastaBilgi">
+        <MappingFragment StoreEntitySet="HastaBilgi">
+          <ScalarProperty Name="HastaBilgiId" ColumnName="HastaBilgiId" />
+          <ScalarProperty Name="Yas" ColumnName="Yas" />
+          <ScalarProperty Name="Uzunluk" ColumnName="Uzunluk" />
+          <ScalarProperty Name="Agarlik" ColumnName="Agarlik" />
+          <ScalarProperty Name="KanGrubu" ColumnName="KanGrubu" />
+          <ScalarProperty Name="Tansiyon" ColumnName="Tansiyon" />
+          <ScalarProperty Name="Nabiz" ColumnName="Nabiz" />
+          <ScalarProperty Name="SolunumSayisi" ColumnName="SolunumSayisi" />
+          <ScalarProperty Name="Sicaklik" ColumnName="Sicaklik" />
+          <ScalarProperty Name="Diyet" ColumnName="Diyet" />
+          <ScalarProperty Name="Alerji" ColumnName="Alerji" />
+          <ScalarProperty Name="OlcmeTarihi" ColumnName="OlcmeTarihi" />
+          <ScalarProperty Name="OlcmeYapanDoktorKimlik" ColumnName="OlcmeYapanDoktorKimlik" />
+          <ScalarProperty Name="E_imza" ColumnName="E-imza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HastaKayit">
+      <EntityTypeMapping TypeName="db01Model.HastaKayit">
+        <MappingFragment StoreEntitySet="HastaKayit">
+          <ScalarProperty Name="HastaKimlik" ColumnName="HastaKimlik" />
+          <ScalarProperty Name="HastaAdSoyad" ColumnName="HastaAdSoyad" />
+          <ScalarProperty Name="HastaDogumTarihi" ColumnName="HastaDogumTarihi" />
+          <ScalarProperty Name="HastaE_posta" ColumnName="HastaE-posta" />
+          <ScalarProperty Name="HastaTelefon" ColumnName="HastaTelefon" />
+          <ScalarProperty Name="HastaKayitBilgiId" ColumnName="HastaKayitBilgiId" />
+          <ScalarProperty Name="HastaRandevuID" ColumnName="HastaRandevuID" />
+          <ScalarProperty Name="HastaTipDalid" ColumnName="HastaTipDalid" />
+          <ScalarProperty Name="HastaSonucId" ColumnName="HastaSonucId" />
+          <ScalarProperty Name="HastaReceteId" ColumnName="HastaReceteId" />
+          <ScalarProperty Name="HastaFoto" ColumnName="HastaFoto" />
+          <ScalarProperty Name="HastaSifre" ColumnName="HastaSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Randevu">
+      <EntityTypeMapping TypeName="db01Model.Randevu">
+        <MappingFragment StoreEntitySet="Randevu">
+          <ScalarProperty Name="RandevuId" ColumnName="RandevuId" />
+          <ScalarProperty Name="RandevuSaati" ColumnName="RandevuSaati" />
+          <ScalarProperty Name="RandevuTarihi" ColumnName="RandevuTarihi" />
+          <ScalarProperty Name="RandevuTipDaliId" ColumnName="RandevuTipDaliId" />
+          <ScalarProperty Name="RandevuDoktorKimlik" ColumnName="RandevuDoktorKimlik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recete">
+      <EntityTypeMapping TypeName="db01Model.Recete">
+        <MappingFragment StoreEntitySet="Recete">
+          <ScalarProperty Name="ReceteId" ColumnName="ReceteId" />
+          <ScalarProperty Name="IlacAdi" ColumnName="IlacAdi" />
+          <ScalarProperty Name="Miktarlar" ColumnName="Miktarlar" />
+          <ScalarProperty Name="Doz" ColumnName="Doz" />
+          <ScalarProperty Name="Sure" ColumnName="Sure" />
+          <ScalarProperty Name="ReceteTarih" ColumnName="ReceteTarih" />
+          <ScalarProperty Name="E_imza" ColumnName="E-imza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TahlilSonuc">
+      <EntityTypeMapping TypeName="db01Model.TahlilSonuc">
+        <MappingFragment StoreEntitySet="TahlilSonuc">
+          <ScalarProperty Name="TahlilSonucId" ColumnName="TahlilSonucId" />
+          <ScalarProperty Name="TahlilSonuc1" ColumnName="TahlilSonuc" />
+          <ScalarProperty Name="TahlilSonucTarih" ColumnName="TahlilSonucTarih" />
+          <ScalarProperty Name="E_imza" ColumnName="E-imza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipdallari">
+      <EntityTypeMapping TypeName="db01Model.Tipdallari">
+        <MappingFragment StoreEntitySet="Tipdallari">
+          <ScalarProperty Name="TipDaliId" ColumnName="TipDaliId" />
+          <ScalarProperty Name="TipDali" ColumnName="TipDali" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

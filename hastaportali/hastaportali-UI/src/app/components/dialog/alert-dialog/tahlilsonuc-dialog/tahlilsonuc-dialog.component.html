@@ -1,0 +1,85 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <div mat-card-avatar ><mat-icon>supervisor_account</mat-icon></div>
+    <mat-card-title>{{dialogbaslik}}</mat-card-title>
+  </mat-card-header> 
+
+  <mat-divider></mat-divider> 
+  &nbsp;&nbsp;&nbsp;
+
+
+  <mat-card-content>
+    <form class="example-container" [formGroup]="frm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>TahlilSonucId</mat-label>
+        <input matInput placeholder="TahlilSonucId :" formControlName="TahlilSonucId" name="TahlilSonucId" type="number">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>TahlilSonucTarih</mat-label>
+        <input matInput placeholder="TahlilSonucTarih :" formControlName="TahlilSonucTarih" name="TahlilSonucTarih" required type="date">
+      </mat-form-field>   
+
+      <mat-form-field style="max-width: 99%;min-width: 48%;" >
+        <mat-label>Tahlil Sonuc</mat-label>
+        <input type="text"
+               placeholder="TahlilSonuc"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto3"
+               name="TahlilSonuc1"
+               formControlName="TahlilSonuc1" required>
+        <mat-autocomplete #auto3="matAutocomplete">
+          <mat-option *ngFor="let TahlilSonuc of TahlilSonuc" [value]="TahlilSonuc.TahlilSonuc1">
+            {{TahlilSonuc.TahlilSonuchastakayitad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    
+     
+      <mat-form-field style="max-width: 99%;min-width: 48%;">
+        <mat-label>DoktorAdSoyad</mat-label>
+        <input type="text"
+               placeholder="DoktorAdSoyad"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               name="TahilSonucDoktor"
+               formControlName="TahilSonucDoktor" required>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let Doktorlar of doktorlar" [value]="Doktorlar.DoktorKimlik">
+            {{Doktorlar.DoktorAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
+      <mat-form-field style="max-width: 99%;min-width: 48%;">
+        <mat-label>HastaAdSoyad</mat-label>
+        <input type="text"
+               placeholder="HastaAdSoyad"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto1"
+               name="TahlilSonuchastakayit"
+               formControlName="TahlilSonuchastakayit" required>
+        <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let hastakayit of hastalar" [value]="hastakayit.HastaKimlik">
+            {{hastakayit.HastaAdSoyad}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+   </form> 
+  </mat-card-content>
+
+ 
+
+
+  <mat-card-actions>
+    <button mat-stroked-button color="warn" (click)="matDialogRef.close()">kapat</button> &nbsp;
+    <button mat-stroked-button color="primary" (click)="matDialogRef.close(frm.value)"  [disabled]="frm.invalid"  >kaydet</button>
+  </mat-card-actions>
+</mat-card>
